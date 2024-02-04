@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,intial-scale=1.0">
+<title>Form 2</title>
+ </head>
+ <style type="text/css">
+ body{
+ display:grid;
+ place-items:center;
+ width:100%;
+ height:100vh;
+
+ }
+ *{
+ box-sizing:border-box;
+ }
+ .container{
+ border-radius:5px;
+ background-color:PINK;
+ padding:20px;
+ height:410px;
+ width:500px;
+ }
+ input[type=text],textarea{
+ width:100%;
+ padding:13px;
+ border:1px solid #ccc;
+ border-radius:4px;
+ box-sizing:border-box;
+ margin-top:6px;
+ margin-bottom:16px;
+ resize:vertical;
+ }
+input[type=password],passwordarea{
+ width:100%;
+ padding:13px;
+ border:1px solid #ccc;
+ border-radius:4px;
+ box-sizing:border-box;
+ margin-top:6px;
+ margin-bottom:16px;
+ resize:vertical;
+ }
+
+ input[type=button]{
+ background-color:red;
+ color:white;
+ padding:12px 20px;
+ border:none;
+ border-radius:4px;
+ cursor:pointer;
+ }
+ input[type=button]:hover{
+ background-color:#454545;
+ }
+ </style>
+ <body> 
+ <div class="container">
+ <form action="">
+ <label for ="Name">Name</label>
+ <input type="text" id="Name" placeholder="Enter your Name"></label>
+  <label for ="Email">Email</label>
+   <input type="text" id="email" placeholder="Enter your email"></label>
+<label for="password">Password</label>
+  <input type="password" id="password" placeholder="Enter your password"></label>
+ <label for="password">Confirm Password </label>
+  <input type="password" id="Subject" placeholder="Enter your confirm password"></label>
+ 
+
+<input type="button" value="submit" onclick="Send()">
+ </form>
+ </div>
+ <script src="https://smtpjs.com/v3/smtp.js"></script>
+ 
+ <script type="text/javascript">
+ function Send(){
+	 var name=document.getElementById("Name").value;
+	 var email=document.getElementById("email").value;
+	 var password=document.getElementById("password").value;
+
+	 var subject=document.getElementById("Subject").value;
+         var verify="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/login.html";
+var body = "file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/login.html"+ "<br/>Email:" + email +"<br/>  Subject:" + subject + "<br/> password:" + password + "<br/> Verify-Email:" + verify;
+console.log(body);
+	 Email.send({
+		    Host : "smtp.elasticemail.com",
+		    Username : "ankitajnotiya@gmail.com",
+		    Password : "2E1B1B022F6A01A9EC6956D66FF001FB0BDA",
+		    To : 'ankitajnotiya@gmail.com',
+		    From : "ankitajnotiya@gmail.com",
+		    Subject :subject,
+		    Body : body,
+                    verify : "file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/login.html"
+		}).then(
+		  message => alert(message)
+		);
+ }
+ 
+ </script>
+ </body>
+</html>

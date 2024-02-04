@@ -1,0 +1,661 @@
+<!Doctype html>
+<html>
+<head> 
+<meta charset="UTF-8">
+<title> Startup Ayush Portal</title>
+
+
+</head>
+<style type="text/css">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body{
+font-family: 'Poppins', sans-serif;
+}
+.navbar{
+display:flex;
+align-items:center;
+padding:20px;
+}
+nav{
+flex:1;
+text-align:right;
+}
+nav ul{
+display:inline-block;
+list-style-type:none;
+}
+nav ul li{
+display:inline-block;
+margin-right:30px;
+}
+a{
+text-decoration:none;
+color:#555;
+}
+p{
+color:#555;
+}
+.container{
+max-width:1300px;
+margin:auto;
+padding-left:25px;
+padding-right:25px;
+}
+.row{
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+justify-content:space-around;
+}
+.col-2{
+flex-basis:50%;
+min-width:300px;
+}
+.col-2 img{
+max-width:100%;
+padding:50px 0;
+}
+.col-2 h1{
+font-size:50px;
+line-height:60px;
+margin:25px 0;
+}
+.btn{
+display:inline-block;
+background:#ff523b;
+color:#fff;
+padding:8px 30px;
+margin:30px 0;
+border-radius:30px;
+}
+.header .row{
+margin-top:70px;
+}
+.categories{
+margin:70px 0;
+}
+.col-3{
+flex-basis:30%;
+min-width:250px;
+margin-bottom:30px;
+}
+.col-3 img{
+width:65%;
+}
+.small-container{
+max-width:1080px;
+margin:auto;
+padding-left:25px;
+padding-right:25px;
+}
+.col-4{
+flex-basis:25%;
+padding:10px;
+min-width:200px;
+margin-bottom:50px;
+transition:transfrom 0.5s;
+}
+.col-4 img{
+width:50%;
+}
+.title{
+text-align:center;
+margin:0 auto 80px;
+position:relative;
+line-height:65px;
+}
+.title::after{
+content:'';
+background:#ff523b;
+width:80px;
+height:5px;
+border-radius:5px;
+position:absolute;
+bottom:0;
+left:50%;
+transform:translate(-50%);
+}
+h4{
+color:#555;
+font-weight:normal;
+}
+.col-4 p{
+font-weight:14px;
+}
+.rating fa{
+color:#ff523b;
+}
+.col-4:hover{
+transform:translate(-5px);
+}
+h2{
+color:red;
+}
+.footer{
+background:#000;
+color:#8a8a8a;
+font-size:18px;
+padding:10px;
+}
+.footer p{
+color:#8a8a8a;
+}
+.footer h3{
+color:#fff;
+margin-bottom:20px;
+}
+.footer-col-1,.footer-col-2,.footer-col-3,.footer-col-4{
+min-width:250px;
+margin-bottom:25px;
+}
+.footer-col-1{
+flex-basis:25%;
+}
+.footer-col-2{
+flex:1;
+text-align:center;
+}
+.footer-col-2 img{
+width:185%;
+margin-bottom:25px;
+}
+div{
+text-align:center;
+}
+.left-nav{
+text-align:left;
+}
+.right-nav{
+text-align:left;
+}
+.search_box{
+text-align:right;
+}
+
+.faq h2{
+font-weight:500;
+font-size:40px;
+}
+.accordion{
+margin:60px auto;
+width:100%;
+max-width:750px;
+}
+.accordion li{
+list-style:none;
+width:100%;
+padding:5px;
+}
+.accordion li label{
+display:flex;
+align-items:center;
+padding:20px;
+font-size:18px;
+font-weight:500;
+background:white;
+margin-bottom:2px;
+cursor:pointer;
+position:relative;
+}
+label::after{
+content:'+';
+font-size:34px;
+position:absolute;
+right:25px;
+}
+input[type="radio"]{
+display:none;
+}
+.accordion .content{
+background:#303030;
+text-align:left;
+padding:0 20px;
+max-height:0;
+overflow:hidden;
+transition:max-height 0.3s,padding 0.3s;
+}
+.accordion input[type="radio"]:checked + label + .content{
+max-height:500px;
+padding:25px 25px;
+}
+
+.accordion input[type="radio"]:checked +label::after{
+transform:rotate(120deg);
+}
+h5{
+font-size:14px;
+}
+h4{
+font-size:19px;
+color:black;
+}
+h3{
+color:red;
+font-size:19px;
+}
+
+.dropbtn {
+  background-color: black;
+  color: white;
+  padding: 25px;
+  font-size: 31px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 15px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: red;}
+
+body{font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+.h1{
+    font-size:  36px;
+    font-weight: 600;
+    align-items: center;
+    text-align: center;
+    font-weight: 200px;
+    padding-bottom: 10px;
+}
+.theme{
+    /*
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+    margin-top: 20px;
+    border: 5px solid brown;
+       margin-left: 10px;
+    margin-right: 20px;
+    background-color:white;
+}
+h1{
+    font-size:  18px;
+    font-weight: 200;
+    color:black;
+
+}
+.flex-container2 {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center items */
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex: 200px;
+    margin-bottom: 10px;
+} 
+.flex-container2 div{
+    border-style: solid;
+    border-color: black;
+}
+.innovation{
+   
+    margin: 10px;
+    padding: 10px;
+    font-size: 15px;
+}
+.innovation p{
+    color:black;
+}
+}
+.software{
+    background-image: url();
+    margin: 20px;
+    padding: 20px;
+    font-size: 18px;
+}
+.software p{
+    color:black;
+    font-size: 15px;
+}
+.h2{
+    font-size: 18px;
+}
+
+.text-box h6{
+    font-size: 50px;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 15px;
+    color: black;
+}
+
+</style>
+<body>
+<div class="left-nav">
+<img src="logo.png" height="50" width="100">
+<img align="right" src="logo1.png" height="50" width="100"><br>
+<li class="nav-item">
+<a class="nav-link" href="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/login.html">Login</a>
+</li>
+
+<a class="nav-link" href="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/registration.html">Register</a>
+
+         <div class="search_box" >
+<form class="header-search-wrap search_field clearfix" action="javascript:searchResult();" novalidate="true">
+<input id="search-here" class="global-search" name="search" type="text" placeholder="Search here" >
+<span id="search-listing" class="search-submit" ><i class="fa fa-search" aria-hidden="true"></i></span>
+</form>
+</div>                                   
+                           
+</div><br>
+<body style="background-color:white;">
+
+
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">About</button>
+  </div>
+
+
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">Startups</button>
+  <div class="dropdown-content" style="left:0;">
+    <a href="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/registration.html">Register</a>
+    <a href="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/login.html">Login </a>
+  </div>
+</div>
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">Investors</button>
+  <div class="dropdown-content" style="left:0;">
+    <a href="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/registration.html">Register</a>
+    <a href="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/login.html">Login</a>
+  </div>
+</div>
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">Incubators</button>
+  <div class="dropdown-content" style="left:0;">
+    <a href="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/ayushportal5.html#51647514162685887-0">Incubators Framework</a>
+  </div>
+</div>
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">Accelerators</button>
+  <div class="dropdown-content" style="left:0;">
+    <a href="file:///C:/Users/91747/eclipse-workspace/myweb/html%20project/ayushportal6.html">Accelerators Framework</a>
+  </div>
+</div>
+
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">Government Schemes</button>
+  <div class="dropdown-content" style="left:0;">
+    <a href="https://www.startupindia.gov.in/content/sih/en/government-schemes.html">Government Schemes </a>
+    <a href="https://www.startupindia.gov.in/content/sih/en/search.html?roles=GovernmentBody&page=0">Government Bodies </a>
+
+  </div>
+</div>
+<br><br><br><br><br><br>
+    <div class="text-box">
+        <marquee behavior="alternate" onmouseover="this.stop()" onmouseout="this.start()" bgcolor="red"><h1>Welcome to StartUp Ayush Portal</h1></marquee><br>
+
+        <p>
+            A one-stop platform for collaboration and innovation. A community of StartUp presented to you for interaction and networking.
+            <br>
+
+<br><br><br>
+
+     <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="ayush.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="img2.jpeg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="img1.jpg" style="width:100%">
+</div>
+
+<a class="prev" onclick="plusSlides(-1)"></a>
+<a class="next" onclick="plusSlides(1)"></a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+     
+<br><br>
+         
+<br><br>
+<h1> Get to know Startup India and Ayush</h1><br><br>
+<h5>The All India Institute of Ayurveda (AIIA) has been conceived as an Apex Institute for Ayurveda.
+ It is an Autonomous Institute under Ministry of Ayush. It aims at bringing a synergy between the 
+ traditional wisdom of Ayurveda and the modern tools and technology. The Institute has 25 
+ specialty departments and 12 clinics with 8 inter-disciplinary research laboratories wherein 
+ several scholars have access for PG & Ph.D. programs every year. This institute 
+ also has an international collaborative centre for global promotion and research 
+ in Ayurveda.</h5><br>
+ <h5>All India Institute of Ayurveda (AIIA) through the partnership with Startup India wants to identify and
+  support innovations and startups working in the Ayush sectors and harness the power of new 
+  technologies.</h5><br><br>
+
+<br><br>
+        <section class="theme">
+            <h1>THEMES FOR CHALLENGES</h1><br>
+            <div class="flex-container2">
+                    <div class="innovation"><br>
+                    <h5><u>Problem Statement </u></h5><br>
+                    <p>The key objective of the Startup AYUSH portal is to be a one-stop platform for all stakeholders (Startups, Investors, Incubators, Accelerators, Government Agencies, and Public Users) in the AYUSH system to interact and collaborate in a highly dynamic environment. The portal is directed to provide a collaborative platform for all the stakeholders of the AYUSH startups to have an interactive engagement to enhance and bolster the network. It will bring together the entire AYUSH Startup community at the global level through virtual connections, mentorship, and showcase opportunities. It will have a plethora of resources and information guides to propel everyone in their entrepreneurial journey.
+</p>
+                    </div><br><br>
+
+                    <div class="software"><br>
+                    <h5><u>AYUSH Portal Solutions </u></h5>
+                    <p><br>
+                        Information technology innovations hold the remarkable potential to empower diverse stakeholders within the Ayush sector. These innovations span a wide array of areas, from leveraging Artificial Intelligence for Ayurveda diagnostics, harnessing the capabilities of virtual reality, utilizing bio-sensors and trackers, offering cost-effective convenient care, to optimizing the use of data to enhance physician experiences during diagnosis and treatment, including patient feedback. Additionally, innovations encompass database management, methods for identifying different phases of pharmaceutical processing, and the establishment of web-based networks for tracking raw drug consumption in the pharmaceutical industry, along with interlinkages.
+                    </p><br>
+                    </div>
+            </div>
+
+
+<br><br><br>
+
+ <div class="faq">
+<h2 align="center"> Frequently Asked Questions</h2><br>
+<ul class="accordion">
+<li> 
+<input type="radio" name="accordion" id="first">
+<label for="first">Where can I get more information on the challenge?</label>
+<div class="content">
+<p>Please reach out to</p>
+</div>
+</li><br><br>
+<li> 
+<input type="radio" name="accordion" id="first">
+<label for="first">What do I upload under "Upload Relevant Documents" in the application form?</label>
+<div class="content">
+<p>Please upload a pitchdeck/ presentation regarding your solution</p>
+</div>
+</li>
+ 
+  
+<div class="rating">
+<i class="fa fa-star"></i>
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<br><br><br><br><br><br>
+
+<div class="footer">
+<h1 align="center">#Startupindia</h1><br><br>
+<form class="email-signup">
+<input type="email" placeholder="Email address" required>
+<button type="submit">Subscribe</button>
+</form>
+</form>
+                
+              
+<div class="container">
+<div class="row">
+<div class="fotter-col-1">
+</div>
+
+<div class="footer-col-3">
+
+<h3> Useful Links</h3>
+<ul> 
+<li> Terms of Use</li>
+<li> Use Startup India Logo</li>
+<li> Request For Proposal</li>
+<li> Blogs</li>
+
+</ul>
+</div><br>
+<div class="footer-col-3">
+
+<h3> Follow us</h3>
+<ul> 
+<li>Disclaimer</li>
+<li>Privacy Policy</li>
+<li> Contact Us</li>
+<li> Site map</li>
+
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html>
